@@ -21,3 +21,9 @@ Pass the `CloudflareBindings` as generics when instantiating `Hono`:
 // src/index.ts
 const app = new Hono<{ Bindings: CloudflareBindings }>()
 ```
+
+To add secrets to your Cloudflare Worker, run:
+
+```txt
+npx wrangler secret put SECRET_NAME
+```

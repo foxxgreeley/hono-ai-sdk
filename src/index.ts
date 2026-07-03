@@ -12,8 +12,8 @@ app.get('/', async (c) => {
     });
 
     const {text} = await generateText({
-        model: gateway('zai/glm-4.7-flash'),
-        prompt: 'Write a greeting.',
+        model: gateway('meta/llama-3.1-8b'),
+        prompt: 'Write a poem.',
     });
 
     return c.text(text)

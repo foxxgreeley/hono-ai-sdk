@@ -2,13 +2,28 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "hono-ai-sdk",
   "main": "src/index.ts",
-  "compatibility_date": "2026-07-03"
+  "compatibility_date": "2026-07-03",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "observability": {
+    "enabled": false,
+    "head_sampling_rate": 1,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "persist": true,
+      "invocation_logs": false
+    },
+    "traces": {
+      "enabled": false,
+      "persist": true,
+      "head_sampling_rate": 1
+    }
+  }
   //  "ai": {
   //    "binding": "AI"
   //  }
-  // "compatibility_flags": [
-  //   "nodejs_compat"
-  // ],
   // "vars": {
   //   "MY_VAR": "my-variable"
   // },

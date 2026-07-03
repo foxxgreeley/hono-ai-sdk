@@ -1,14 +1,15 @@
 import {Hono} from 'hono'
 import {createGateway, generateText} from "ai";
+import {env} from 'hono/adapter'
 
-type Bindings = {
-    AI_GATEWAY_API_KEY: string
-}
 
-const app = new Hono<{ Bindings: Bindings }>()
+const app = new Hono()
 
 app.get('/', async (c) => {
-    const {AI_GATEWAY_API_KEY} = c.env
+    const {AI_GATEWAY_API_KEY} = env<{ AI_GATEWAY_API_KEY: string }>(c)
+    if (!AI_GATEWAY_API_KEY) {
+        return c.text('AI_GATEWAY_API_KEY is not set in the environment variables.')
+    }
 
     const gateway = createGateway({
         apiKey: AI_GATEWAY_API_KEY,

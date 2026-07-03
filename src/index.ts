@@ -9,9 +9,6 @@ const app = new Hono<{ Bindings: Bindings }>()
 
 app.get('/', async (c) => {
     const {AI_GATEWAY_API_KEY} = c.env
-    if (!AI_GATEWAY_API_KEY) {
-        return c.text('AI_GATEWAY_API_KEY is not set in the environment variables.')
-    }
 
     const gateway = createGateway({
         apiKey: AI_GATEWAY_API_KEY,

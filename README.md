@@ -1,5 +1,23 @@
-# Hono Vercel AI SDK Endpoints
+# Hono Cloudflare Worker Template
 
-This provides a set of endpoints for integrating Vercel AI SDK capabilities into any authorized applications using Hono.
+```txt
+npm install
+npm run dev
+```
 
-More specifically, this can be used to create an API that non-node applications can call to access Vercel AI SDK features, such as generating text, images, or other AI-powered functionalities.
+```txt
+npm run deploy
+```
+
+[For generating/synchronizing types based on your Worker configuration run](https://developers.cloudflare.com/workers/wrangler/commands/#types):
+
+```txt
+npm run cf-typegen
+```
+
+Pass the `CloudflareBindings` as generics when instantiating `Hono`:
+
+```ts
+// src/index.ts
+const app = new Hono<{ Bindings: CloudflareBindings }>()
+```

@@ -8,6 +8,8 @@
     "type-check": "generate-types && tsc"
   },
   "dependencies": {
+    "ai": "^7.0.14",
+    "ai-gateway-provider": "^3.2.0",
     "hono": "^4.12.27"
   },
   "devDependencies": {
